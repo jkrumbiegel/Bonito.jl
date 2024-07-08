@@ -14,7 +14,7 @@
     align_items=&quot;legacy&quot;,
     style::Styles=Styles(),
     div_attributes...,
-)</code></pre><p>A Grid is a container that lays out its children in a grid, based on the powerful css <code>display: grid</code> property.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/ead1f5b35b734de15e56d648a666951876dbca38/src/components.jl#L72-L91">source</a></section></article><p>It pretty much just sets the css attributes to some defaults, but everything can be overwritten or extended by passing your own <code>style=Styles(...)</code> object. All Styles objects inside one App will be merged into a single stylesheet, so using many grids with the same keyword arguments will only generate one entry into the global stylesheet. You can read more about this in the styling section.</p><p>There&#39;s also <code>Row</code> and <code>Col</code> which uses <code>Grid</code> under the hood:</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="Bonito.Row" href="#Bonito.Row"><code>Bonito.Row</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">Row(elems...; grid_attributes...)</code></pre><p>Places objects in a row, based on <code>Grid</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/ead1f5b35b734de15e56d648a666951876dbca38/src/components.jl#L125-L129">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="Bonito.Col" href="#Bonito.Col"><code>Bonito.Col</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">Col(elems...; grid_attributes...)</code></pre><p>Places objects in a column, based on <code>Grid</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/ead1f5b35b734de15e56d648a666951876dbca38/src/components.jl#L136-L140">source</a></section></article><h2 id="Implicit-Grids"><a class="docs-heading-anchor" href="#Implicit-Grids">Implicit Grids</a><a id="Implicit-Grids-1"></a><a class="docs-heading-anchor-permalink" href="#Implicit-Grids" title="Permalink"></a></h2><p>If we don&#39;t specify any attributes for the <code>Grid</code>, the default will be one dynamic column, where every item gets their own row:</p><pre><code class="language-julia hljs">DemoCard(content=DOM.div(); style=Styles(), attributes...) = Card(content; backgroundcolor=:silver, border_radius=&quot;2px&quot;, style=Styles(style, &quot;color&quot; =&gt; :white),attributes...)
+)</code></pre><p>A Grid is a container that lays out its children in a grid, based on the powerful css <code>display: grid</code> property.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/d27ffccb4d9688f5dbee2d06f7ccd3c62c6b7fc1/src/components.jl#L72-L91">source</a></section></article><p>It pretty much just sets the css attributes to some defaults, but everything can be overwritten or extended by passing your own <code>style=Styles(...)</code> object. All Styles objects inside one App will be merged into a single stylesheet, so using many grids with the same keyword arguments will only generate one entry into the global stylesheet. You can read more about this in the styling section.</p><p>There&#39;s also <code>Row</code> and <code>Col</code> which uses <code>Grid</code> under the hood:</p><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="Bonito.Row" href="#Bonito.Row"><code>Bonito.Row</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">Row(elems...; grid_attributes...)</code></pre><p>Places objects in a row, based on <code>Grid</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/d27ffccb4d9688f5dbee2d06f7ccd3c62c6b7fc1/src/components.jl#L125-L129">source</a></section></article><article class="docstring"><header><a class="docstring-article-toggle-button fa-solid fa-chevron-down" href="javascript:;" title="Collapse docstring"></a><a class="docstring-binding" id="Bonito.Col" href="#Bonito.Col"><code>Bonito.Col</code></a> — <span class="docstring-category">Function</span></header><section><div><pre><code class="language-julia hljs">Col(elems...; grid_attributes...)</code></pre><p>Places objects in a column, based on <code>Grid</code>.</p></div><a class="docs-sourcelink" target="_blank" href="https://github.com/SimonDanisch/Bonito.jl/blob/d27ffccb4d9688f5dbee2d06f7ccd3c62c6b7fc1/src/components.jl#L136-L140">source</a></section></article><h2 id="Implicit-Grids"><a class="docs-heading-anchor" href="#Implicit-Grids">Implicit Grids</a><a id="Implicit-Grids-1"></a><a class="docs-heading-anchor-permalink" href="#Implicit-Grids" title="Permalink"></a></h2><p>If we don&#39;t specify any attributes for the <code>Grid</code>, the default will be one dynamic column, where every item gets their own row:</p><pre><code class="language-julia hljs">DemoCard(content=DOM.div(); style=Styles(), attributes...) = Card(content; backgroundcolor=:silver, border_radius=&quot;2px&quot;, style=Styles(style, &quot;color&quot; =&gt; :white),attributes...)
 
 
 App() do sess
@@ -25,18 +25,18 @@ App() do sess
     end
     return Bonito.record_states(sess, Grid(s, cards))
 end</code></pre><div>
-  <div class="bonito-fragment" id="c79fec49-8dca-41da-b4c5-f48961fd0661" data-jscall-id="root">
+  <div class="bonito-fragment" id="c43ed28f-f4e8-4332-a713-0a769e83fc66" data-jscall-id="root">
     <div>
       <script src="bonito/js/Bonito.bundled.js" type="module"></script>
       <style></style>
       <div></div>
     </div>
     <div>
-      <script type="module">Bonito.lock_loading(() => Bonito.init_session('c79fec49-8dca-41da-b4c5-f48961fd0661', null, 'root'))</script>
+      <script type="module">Bonito.lock_loading(() => Bonito.init_session('c43ed28f-f4e8-4332-a713-0a769e83fc66', null, 'root'))</script>
       <span></span>
     </div>
   </div>
-  <div class="bonito-fragment" id="7e555c1a-db2f-4e21-8c27-4d52346f99c7" data-jscall-id="subsession-application-dom">
+  <div class="bonito-fragment" id="ae55f740-d02d-40ee-82d3-7a969ea2f5d1" data-jscall-id="subsession-application-dom">
     <div>
       <style>.style_24 {
   justify-items: legacy;
@@ -56,13 +56,13 @@ end</code></pre><div>
     </div>
     <div>
       <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/32c6b4f4b25061b1134900bff6976dcc689f2d53-6262041031589335586.bin').then(msgs=> Bonito.init_session('7e555c1a-db2f-4e21-8c27-4d52346f99c7', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/1f97f4e21fbb8c331a9eeb05f94149f3a0ce3535-14841765392090648609.bin').then(msgs=> Bonito.init_session('ae55f740-d02d-40ee-82d3-7a969ea2f5d1', msgs, 'sub'));
     })
 </script>
       <div style="" data-jscall-id="1">
         <input step="1" max="5" min="1" style="styles" data-jscall-id="2" value="1" oninput="" type="range" />
         <span data-jscall-id="6">
-          <div class="bonito-fragment" id="6ee9769a-1dfa-446f-bd63-6f5a22af71f1" data-jscall-id="subsession-application-dom">
+          <div class="bonito-fragment" id="2bd53d46-dd30-4ceb-9cc3-0260ac3ec173" data-jscall-id="subsession-application-dom">
             <div data-jscall-id="7">
               <style data-jscall-id="8">.style_2 {
   height: 50px;
@@ -91,7 +91,7 @@ end</code></pre><div>
               <div data-jscall-id="9"></div>
             </div>
             <div data-jscall-id="10">
-              <script data-jscall-id="11" type="module">Bonito.lock_loading(() => Bonito.init_session('6ee9769a-1dfa-446f-bd63-6f5a22af71f1', null, 'sub'))</script>
+              <script data-jscall-id="11" type="module">Bonito.lock_loading(() => Bonito.init_session('2bd53d46-dd30-4ceb-9cc3-0260ac3ec173', null, 'sub'))</script>
               <div class=" style_3" style="" data-jscall-id="3">
                 <div class=" style_2" style="" data-jscall-id="4">
                   <div data-jscall-id="5"></div>
@@ -110,7 +110,7 @@ end</code></pre><div>
         Grid(cards; height=&quot;300px&quot;)
     end
     return Bonito.record_states(sess, Grid(s, cards))
-end</code></pre><div class="bonito-fragment" id="789c28b3-710b-44b8-931d-626f1aa7d61b" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="26a397b0-1afd-40f8-86d8-b2b98ff3b1bb" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_47 {
   justify-items: legacy;
@@ -130,13 +130,13 @@ end</code></pre><div class="bonito-fragment" id="789c28b3-710b-44b8-931d-626f1aa
   </div>
   <div>
     <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/341c2fb9a2c52eba4e5175b86068d2bd52de5457-15848372687294344440.bin').then(msgs=> Bonito.init_session('789c28b3-710b-44b8-931d-626f1aa7d61b', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/0eb547f66d286e0bc40ff84d72faa6e7a3a79e09-10227080489201952509.bin').then(msgs=> Bonito.init_session('26a397b0-1afd-40f8-86d8-b2b98ff3b1bb', msgs, 'sub'));
     })
 </script>
     <div style="" data-jscall-id="122">
       <input step="1" max="5" min="1" style="styles" data-jscall-id="123" value="1" oninput="" type="range" />
       <span data-jscall-id="127">
-        <div class="bonito-fragment" id="f0392823-3983-4958-b848-6f33cbf91de2" data-jscall-id="subsession-application-dom">
+        <div class="bonito-fragment" id="93789896-7246-49b3-a02f-fa1ee6fb63ef" data-jscall-id="subsession-application-dom">
           <div data-jscall-id="128">
             <style data-jscall-id="129">.style_25 {
   justify-items: legacy;
@@ -165,7 +165,7 @@ end</code></pre><div class="bonito-fragment" id="789c28b3-710b-44b8-931d-626f1aa
             <div data-jscall-id="130"></div>
           </div>
           <div data-jscall-id="131">
-            <script data-jscall-id="132" type="module">Bonito.lock_loading(() => Bonito.init_session('f0392823-3983-4958-b848-6f33cbf91de2', null, 'sub'))</script>
+            <script data-jscall-id="132" type="module">Bonito.lock_loading(() => Bonito.init_session('93789896-7246-49b3-a02f-fa1ee6fb63ef', null, 'sub'))</script>
             <div class=" style_25" style="" data-jscall-id="124">
               <div class=" style_26" style="" data-jscall-id="125">
                 <div data-jscall-id="126"></div>
@@ -180,7 +180,7 @@ end</code></pre><div class="bonito-fragment" id="789c28b3-710b-44b8-931d-626f1aa
     grid = Grid(DemoCard(), DemoCard();
         height=&quot;300px&quot;, columns=&quot;25% 75%&quot;)
     return grid
-end</code></pre><div class="bonito-fragment" id="e3332d0f-d6bc-4ada-8646-3195bddcbf6d" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="164d164e-c4ae-4c65-b144-51c7f58a009a" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_48 {
   justify-items: legacy;
@@ -209,7 +209,7 @@ end</code></pre><div class="bonito-fragment" id="e3332d0f-d6bc-4ada-8646-3195bdd
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('e3332d0f-d6bc-4ada-8646-3195bddcbf6d', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('164d164e-c4ae-4c65-b144-51c7f58a009a', null, 'sub'))</script>
     <div class=" style_48" style="" data-jscall-id="243">
       <div class=" style_49" style="" data-jscall-id="244">
         <div data-jscall-id="245"></div>
@@ -246,7 +246,7 @@ end</code></pre><div class="bonito-fragment" id="e3332d0f-d6bc-4ada-8646-3195bdd
     title_percent = DOM.h2(&quot;Grid(...; columns=\&quot;25% 75%\&quot;)&quot;)
     title_fr = DOM.h2(&quot;Grid(...; columns=\&quot;1fr 3fr\&quot;)&quot;)
     return Grid(container_width, title_percent, grid_percent, title_fr, grid_fr; columns=&quot;1fr&quot;)
-end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71f65eb" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="f6f97265-ffb5-4730-9de5-b88580cc97f2" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_50 {
   justify-items: legacy;
@@ -262,10 +262,17 @@ end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71
   grid-template-areas: none;
 }
 .style_51 {
-  max-width: none;
-  display: block;
-  position: relative;
-  width: 100px;
+  justify-items: legacy;
+  align-items: legacy;
+  height: 100%;
+  display: grid;
+  align-content: normal;
+  grid-gap: 10px;
+  grid-template-rows: none;
+  justify-content: normal;
+  grid-template-columns: 25% 75%;
+  width: 100%;
+  grid-template-areas: none;
 }
 .style_52 {
   justify-items: legacy;
@@ -281,17 +288,10 @@ end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71
   grid-template-areas: none;
 }
 .style_53 {
-  justify-items: legacy;
-  align-items: legacy;
-  height: 100%;
-  display: grid;
-  align-content: normal;
-  grid-gap: 10px;
-  grid-template-rows: none;
-  justify-content: normal;
-  grid-template-columns: 25% 75%;
-  width: 100%;
-  grid-template-areas: none;
+  max-width: none;
+  display: block;
+  position: relative;
+  width: 100px;
 }
 .style_54 {
   justify-items: legacy;
@@ -342,7 +342,7 @@ end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71
   </div>
   <div>
     <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/ac3c0ef8e5c2652fd7a6535437573fd9d0263d6e-7378313385181892852.bin').then(msgs=> Bonito.init_session('e3b6caf2-a94f-460c-b126-ab23f71f65eb', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/b2f570179bad0d7fb04c33e5d55981ba81e82966-8578560084125173863.bin').then(msgs=> Bonito.init_session('f6f97265-ffb5-4730-9de5-b88580cc97f2', msgs, 'sub'));
     })
 </script>
     <div class=" style_50" style="" data-jscall-id="250">
@@ -352,9 +352,9 @@ end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71
         <div class=" style_54" style="" data-jscall-id="254">
           <div class=" style_57" style="" data-jscall-id="255">
             <div class=" style_56" style="" data-jscall-id="248">
-              <div class=" style_53" style="" data-jscall-id="256">
+              <div class=" style_51" style="" data-jscall-id="256">
                 <div class=" style_55" style="" data-jscall-id="257">
-                  <img class=" style_51" style="" data-jscall-id="258" src="https://docs.makie.org/stable/assets/makie_logo_transparent.svg" />
+                  <img class=" style_53" style="" data-jscall-id="258" src="https://docs.makie.org/stable/assets/makie_logo_transparent.svg" />
                 </div>
                 <div class=" style_55" style="" data-jscall-id="259">
                   <div data-jscall-id="260"></div>
@@ -371,7 +371,7 @@ end</code></pre><div class="bonito-fragment" id="e3b6caf2-a94f-460c-b126-ab23f71
             <div class=" style_56" style="" data-jscall-id="249">
               <div class=" style_52" style="" data-jscall-id="265">
                 <div class=" style_55" style="" data-jscall-id="266">
-                  <img class=" style_51" style="" data-jscall-id="258" src="https://docs.makie.org/stable/assets/makie_logo_transparent.svg" />
+                  <img class=" style_53" style="" data-jscall-id="258" src="https://docs.makie.org/stable/assets/makie_logo_transparent.svg" />
                 </div>
                 <div class=" style_55" style="" data-jscall-id="267">
                   <div data-jscall-id="268"></div>
@@ -391,7 +391,7 @@ App() do
     cards = [centered(i) for i in 1:3]
     grid = Grid(cards...; columns=&quot;1fr 3fr&quot;)
     return DOM.div(grid; style=Styles(&quot;margin&quot; =&gt; &quot;20px&quot;))
-end</code></pre><div class="bonito-fragment" id="93b1e3fe-4b12-4d60-8549-831c8962eacf" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="612bfb21-53aa-4cff-a1b1-296bf1897fa7" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_58 {
   justify-items: legacy;
@@ -439,7 +439,7 @@ end</code></pre><div class="bonito-fragment" id="93b1e3fe-4b12-4d60-8549-831c896
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('93b1e3fe-4b12-4d60-8549-831c8962eacf', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('612bfb21-53aa-4cff-a1b1-296bf1897fa7', null, 'sub'))</script>
     <div class=" style_59" style="" data-jscall-id="269">
       <div class=" style_58" style="" data-jscall-id="270">
         <div class=" style_61" style="" data-jscall-id="271">
@@ -464,7 +464,7 @@ end</code></pre><div class="bonito-fragment" id="93b1e3fe-4b12-4d60-8549-831c896
     cards = [centered(i) for i in 1:4]
     grid = Grid(cards...; columns=&quot;1fr 3fr&quot;, rows=&quot;5rem 1fr&quot;)
     return DOM.div(grid; style=Styles(&quot;width&quot; =&gt; &quot;400px&quot;, &quot;height&quot; =&gt; &quot;300px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;))
-end</code></pre><div class="bonito-fragment" id="85d821b1-a9c3-4e3e-9b54-d3e31864b764" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="8f0ec432-9a5d-449d-8a07-3312a0c055f6" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_63 {
   justify-items: legacy;
@@ -514,7 +514,7 @@ end</code></pre><div class="bonito-fragment" id="85d821b1-a9c3-4e3e-9b54-d3e3186
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('85d821b1-a9c3-4e3e-9b54-d3e31864b764', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('8f0ec432-9a5d-449d-8a07-3312a0c055f6', null, 'sub'))</script>
     <div class=" style_65" style="" data-jscall-id="280">
       <div class=" style_63" style="" data-jscall-id="281">
         <div class=" style_66" style="" data-jscall-id="282">
@@ -544,7 +544,7 @@ end</code></pre><div class="bonito-fragment" id="85d821b1-a9c3-4e3e-9b54-d3e3186
     cards = [centered(i) for i in 1:31]
     grid = Grid(cards...; columns=&quot;repeat(7, 1fr)&quot;)
     return DOM.div(grid; style=Styles(&quot;width&quot; =&gt; &quot;400px&quot;, &quot;margin&quot; =&gt; &quot;5px&quot;))
-end</code></pre><div class="bonito-fragment" id="c6d6e10d-24db-45ae-8ae5-e3c16c3dae90" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="a3de9d0a-7564-4517-8c69-6660fe045ab7" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_68 {
   justify-items: center;
@@ -593,7 +593,7 @@ end</code></pre><div class="bonito-fragment" id="c6d6e10d-24db-45ae-8ae5-e3c16c3
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('c6d6e10d-24db-45ae-8ae5-e3c16c3dae90', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('a3de9d0a-7564-4517-8c69-6660fe045ab7', null, 'sub'))</script>
     <div class=" style_69" style="" data-jscall-id="294">
       <div class=" style_70" style="" data-jscall-id="295">
         <div class=" style_71" style="" data-jscall-id="296">
@@ -884,7 +884,7 @@ App() do
 
 
     return Grid(style_display, grids; columns=&quot;1fr 2fr&quot;, width=&quot;100%&quot;)
-end</code></pre><div class="bonito-fragment" id="afedf29f-c67d-4484-96db-3e0dea11cfba" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="32dc7420-67dc-4027-8c7f-3c1f5714fa37" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_73 {
   justify-items: legacy;
@@ -979,7 +979,7 @@ end</code></pre><div class="bonito-fragment" id="afedf29f-c67d-4484-96db-3e0dea1
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('afedf29f-c67d-4484-96db-3e0dea11cfba', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('32dc7420-67dc-4027-8c7f-3c1f5714fa37', null, 'sub'))</script>
     <div class=" style_73" style="" data-jscall-id="389">
       <div class=" style_79" style="" data-jscall-id="390">
         <div class=" style_74" style="" data-jscall-id="391">
@@ -1173,7 +1173,7 @@ end</code></pre><div class="bonito-fragment" id="afedf29f-c67d-4484-96db-3e0dea1
         rows = &quot;50px 1fr&quot;
     )
     return DOM.div(grid; style=Styles(&quot;height&quot; =&gt; &quot;600px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;, &quot;position&quot; =&gt; :relative))
-end</code></pre><div class="bonito-fragment" id="b3499f64-ebfc-4782-afff-9bd825e7f8fb" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="18e723ad-a0fa-4f6c-858e-c59f136084d6" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_82 {
   justify-items: legacy;
@@ -1233,7 +1233,7 @@ end</code></pre><div class="bonito-fragment" id="b3499f64-ebfc-4782-afff-9bd825e
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('b3499f64-ebfc-4782-afff-9bd825e7f8fb', null, 'sub'))</script>
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('18e723ad-a0fa-4f6c-858e-c59f136084d6', null, 'sub'))</script>
     <div class=" style_83" style="" data-jscall-id="444">
       <div class=" style_82" style="" data-jscall-id="445">
         <div class=" style_84" style="" data-jscall-id="446">SIDEBAR</div>
@@ -1273,7 +1273,7 @@ end</code></pre><div class="bonito-fragment" id="b3499f64-ebfc-4782-afff-9bd825e
         &quot;&quot;&quot;
     )
     return DOM.div(grid; style=Styles(&quot;height&quot; =&gt; &quot;600px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;, &quot;position&quot; =&gt; :relative))
-end</code></pre><div class="bonito-fragment" id="b6b592c1-e0e8-4fc7-8089-db791d763f46" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="74e5a4a9-ec5d-4190-ba50-b91b4e4cf7c7" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_87 {
   justify-items: legacy;
@@ -1290,11 +1290,6 @@ end</code></pre><div class="bonito-fragment" id="b6b592c1-e0e8-4fc7-8089-db791d7
     'sidebar main';;
 }
 .style_88 {
-  height: 600px;
-  position: relative;
-  margin: 20px;
-}
-.style_89 {
   height: auto;
   padding: 12px;
   background-color: silver;
@@ -1304,6 +1299,11 @@ end</code></pre><div class="bonito-fragment" id="b6b592c1-e0e8-4fc7-8089-db791d7
   width: auto;
   border-radius: 2px;
   margin: 2px;
+}
+.style_89 {
+  height: 600px;
+  position: relative;
+  margin: 20px;
 }
 .style_90 {
   height: auto;
@@ -1331,10 +1331,10 @@ end</code></pre><div class="bonito-fragment" id="b6b592c1-e0e8-4fc7-8089-db791d7
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('b6b592c1-e0e8-4fc7-8089-db791d763f46', null, 'sub'))</script>
-    <div class=" style_88" style="" data-jscall-id="449">
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('74e5a4a9-ec5d-4190-ba50-b91b4e4cf7c7', null, 'sub'))</script>
+    <div class=" style_89" style="" data-jscall-id="449">
       <div class=" style_87" style="" data-jscall-id="450">
-        <div class=" style_89" style="" data-jscall-id="451">SIDEBAR</div>
+        <div class=" style_88" style="" data-jscall-id="451">SIDEBAR</div>
         <div class=" style_91" style="" data-jscall-id="452">HEADER</div>
         <div class=" style_90" style="" data-jscall-id="453">MAIN</div>
       </div>
@@ -1346,7 +1346,7 @@ end</code></pre><div class="bonito-fragment" id="b6b592c1-e0e8-4fc7-8089-db791d7
         columns = &quot;90px 90px&quot;,
     )
     return DOM.div(grid; style=Styles(&quot;height&quot; =&gt; &quot;200px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;, &quot;position&quot; =&gt; :relative, &quot;background-color&quot; =&gt; &quot;#F88379&quot;, &quot;padding&quot; =&gt; &quot;5px&quot;))
-end</code></pre><div class="bonito-fragment" id="809f74e3-b190-492f-bfce-2b23077d7083" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="c3966252-d4a0-44fc-b496-0d962b2dc936" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_92 {
   justify-items: legacy;
@@ -1362,13 +1362,6 @@ end</code></pre><div class="bonito-fragment" id="809f74e3-b190-492f-bfce-2b23077
   grid-template-areas: none;
 }
 .style_93 {
-  height: 200px;
-  padding: 5px;
-  background-color: #F88379;
-  position: relative;
-  margin: 20px;
-}
-.style_94 {
   height: auto;
   padding: 12px;
   background-color: silver;
@@ -1378,17 +1371,24 @@ end</code></pre><div class="bonito-fragment" id="809f74e3-b190-492f-bfce-2b23077
   border-radius: 2px;
   margin: 2px;
 }
+.style_94 {
+  height: 200px;
+  padding: 5px;
+  background-color: #F88379;
+  position: relative;
+  margin: 20px;
+}
 </style>
     <div></div>
   </div>
   <div>
-    <script type="module">Bonito.lock_loading(() => Bonito.init_session('809f74e3-b190-492f-bfce-2b23077d7083', null, 'sub'))</script>
-    <div class=" style_93" style="" data-jscall-id="454">
+    <script type="module">Bonito.lock_loading(() => Bonito.init_session('c3966252-d4a0-44fc-b496-0d962b2dc936', null, 'sub'))</script>
+    <div class=" style_94" style="" data-jscall-id="454">
       <div class=" style_92" style="" data-jscall-id="455">
-        <div class=" style_94" style="" data-jscall-id="456">
+        <div class=" style_93" style="" data-jscall-id="456">
           <div data-jscall-id="457"></div>
         </div>
-        <div class=" style_94" style="" data-jscall-id="458">
+        <div class=" style_93" style="" data-jscall-id="458">
           <div data-jscall-id="459"></div>
         </div>
       </div>
@@ -1409,7 +1409,7 @@ end</code></pre><div class="bonito-fragment" id="809f74e3-b190-492f-bfce-2b23077
     area_style = Styles(&quot;height&quot; =&gt; &quot;200px&quot;, &quot;width&quot; =&gt; &quot;600px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;, &quot;position&quot; =&gt; :relative, &quot;background-color&quot; =&gt; &quot;#F88379&quot;, &quot;padding&quot; =&gt; &quot;5px&quot;)
     grid_area = DOM.div(grid; style=area_style)
     return Grid(justification, grid_area; justify_items=&quot;center&quot;)
-end</code></pre><div class="bonito-fragment" id="1eec9462-7640-47fd-94b8-8374681511b0" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="9d829faa-e477-4229-a1e5-3c5b492e0415" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_95 {
   justify-items: center;
@@ -1486,7 +1486,7 @@ end</code></pre><div class="bonito-fragment" id="1eec9462-7640-47fd-94b8-8374681
   </div>
   <div>
     <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/a13616431796acc359847d2b83b92e0ef1f0bed7-14455193385588691575.bin').then(msgs=> Bonito.init_session('1eec9462-7640-47fd-94b8-8374681511b0', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/7311df59ba18942a8834df6315de025552b17670-10195136981480443296.bin').then(msgs=> Bonito.init_session('9d829faa-e477-4229-a1e5-3c5b492e0415', msgs, 'sub'));
     })
 </script>
     <div class=" style_95" style="" data-jscall-id="461">
@@ -1531,7 +1531,7 @@ end</code></pre><div class="bonito-fragment" id="1eec9462-7640-47fd-94b8-8374681
     grid_area = DOM.div(grid; style=Styles(&quot;height&quot; =&gt; &quot;200px&quot;, &quot;width&quot; =&gt; &quot;600px&quot;, &quot;margin&quot; =&gt; &quot;20px&quot;, &quot;position&quot; =&gt; :relative, &quot;background-color&quot; =&gt; &quot;#F88379&quot;, &quot;padding&quot; =&gt; &quot;5px&quot;,
         &quot;grid-column&quot; =&gt; &quot;1 / 3&quot;, &quot;grid-row&quot; =&gt; &quot;2&quot;))
     return Grid(content, items, grid_area; width=&quot;500px&quot;, justify_items=&quot;space-around&quot;)
-end</code></pre><div class="bonito-fragment" id="a362dd92-3536-49aa-bf8c-a42831c2cb2b" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="0b74fbd4-ebcb-415c-9b1f-5eea77e77b2c" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_102 {
   min-width: 8rem;
@@ -1609,7 +1609,7 @@ end</code></pre><div class="bonito-fragment" id="a362dd92-3536-49aa-bf8c-a42831c
   </div>
   <div>
     <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/421cff8bd0b4e3a57c9069c6ddbe1a0e5f32ad94-4697168985629714006.bin').then(msgs=> Bonito.init_session('a362dd92-3536-49aa-bf8c-a42831c2cb2b', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/dfd75c218abb2801a84cfc49eca358f2a764fcbf-4955111018614045345.bin').then(msgs=> Bonito.init_session('0b74fbd4-ebcb-415c-9b1f-5eea77e77b2c', msgs, 'sub'));
     })
 </script>
     <div class=" style_104" style="" data-jscall-id="475">
@@ -1725,7 +1725,7 @@ end</code></pre><div class="bonito-fragment" id="a362dd92-3536-49aa-bf8c-a42831c
 
 
     return DOM.div(final_grid, style=Styles(&quot;padding&quot; =&gt; &quot;20px&quot;))
-end</code></pre><div class="bonito-fragment" id="2dc40f7c-4ad1-4156-8754-1c18616a2199" data-jscall-id="subsession-application-dom">
+end</code></pre><div class="bonito-fragment" id="9d9f2e1a-da92-4102-8f31-c675f5258c48" data-jscall-id="subsession-application-dom">
   <div>
     <style>.style_109 {
   font-size: 1.3rem;
@@ -1869,7 +1869,7 @@ end</code></pre><div class="bonito-fragment" id="2dc40f7c-4ad1-4156-8754-1c18616
   </div>
   <div>
     <script type="module">    Bonito.lock_loading(() => {
-        return Bonito.fetch_binary('bonito/bin/4bf0641441d856849d255f188aa30035fa4a69ef-8726832575907610492.bin').then(msgs=> Bonito.init_session('2dc40f7c-4ad1-4156-8754-1c18616a2199', msgs, 'sub'));
+        return Bonito.fetch_binary('bonito/bin/4979907e1fac8b83b5ebaa2a1735cbf49f3a13c4-9636564667205932633.bin').then(msgs=> Bonito.init_session('9d9f2e1a-da92-4102-8f31-c675f5258c48', msgs, 'sub'));
     })
 </script>
     <div class=" style_122" style="" data-jscall-id="499">
@@ -1937,4 +1937,4 @@ end</code></pre><div class="bonito-fragment" id="2dc40f7c-4ad1-4156-8754-1c18616
       </div>
     </div>
   </div>
-</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="components.html">« Components</a><a class="docs-footer-nextpage" href="widgets.html">Widgets »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.5.0 on <span class="colophon-date" title="Monday 8 July 2024 13:59">Monday 8 July 2024</span>. Using Julia version 1.10.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+</div></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="components.html">« Components</a><a class="docs-footer-nextpage" href="widgets.html">Widgets »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.5.0 on <span class="colophon-date" title="Monday 8 July 2024 14:06">Monday 8 July 2024</span>. Using Julia version 1.10.4.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
